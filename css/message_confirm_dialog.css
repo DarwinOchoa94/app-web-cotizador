@@ -1,0 +1,86 @@
+.screen-message-confirm-background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,.7);
+}
+.screen-message-confirm {
+    z-index:301;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+    width: 100%;
+    box-shadow: 5px 15px 15px #000000;
+}
+.screen-message-confirm__body-container,
+.screen-message-confirm__button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.screen-message-confirm__body-container {
+    height: 20vh;
+    background-color: white;
+}
+.screen-message-confirm__body-container h1 {
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+.screen-message-confirm__button-container {
+    justify-content: flex-end;
+    height: 10vh;
+    background-color: #142238;
+}
+.screen-message-confirm__button {
+    margin-right: 2em;
+}
+
+
+@media screen and ( max-width: 1280px ) {
+    .screen-message-confirm__body-container {
+        flex-direction: column;
+        height: 80vh;
+    }
+    .screen-message-confirm__body-container img {
+        transform: scale(2);
+        margin-right: 0;
+        margin-bottom: 5em;
+    }
+    .screen-message-confirm__body-container h1 {
+        font-size: 1.6em;
+    }
+    .screen-message-confirm__button-container {
+        height: 20vh;
+    }
+    .screen-message-confirm__button {
+        width: 20% !important;
+        height: 2.8em;
+        font-size: 1.2em;
+        border-radius: 1.5em;
+    }
+}
+@media screen and ( max-width: 1280px ) and ( orientation: portrait ) {
+    .screen-message-confirm__button-container {
+        justify-content: center;
+    }
+    .screen-message-confirm__button-container #btnConfirmMessage {
+        margin-right: 1em;
+    }
+    .screen-message-confirm__button-container #btnCancelMessage {
+        margin-left: 1em;
+    }
+    .screen-message-confirm__button {
+        width: 30% !important;
+        margin-right: 0;
+    }
+
+}

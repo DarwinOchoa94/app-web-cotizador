@@ -1,0 +1,159 @@
+.sesion {
+	background-image: linear-gradient(270deg,#142238,#0973A0,#142238);
+	text-align: right;
+}
+.sesion label,a {
+	color: white;
+	text-decoration: none;
+	line-height: 1.2em;
+	padding-right: 1em;
+}
+.login-screen-background{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,.7);
+}
+.login-screen {
+	position: absolute;
+	width: 30%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	background-image: linear-gradient(#fff,#0973A0,#142238);
+	border-radius: 6px;
+	box-shadow: 5px 5px 15px #000000;
+	padding: 2em;
+	top: 10vh;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+.login-container {
+	display: flex;
+	justify-content: space-around;
+}
+.login-logo-container {
+	width: 100%;
+	height: 20vh;
+}
+.login-logo {
+	width: 60%;
+	height: auto;
+	align-self: center;
+}
+.login-group {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-start;	
+	padding: 1.5em;
+	border: 2px ridge rgba(3,62,89,.5);
+	color: #142238;
+}
+.login-field {
+	width: 100%;
+}
+.login-field.select {
+	margin-bottom: 1em;
+}
+.login-button {
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: normal !important;
+    margin-top: 1em;
+}
+.login-error {
+	font-size: .7em;
+	color: red;
+	margin-bottom: .5em;
+}
+.mensaje-hidden {
+	display: none;
+}
+.close-sesion {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: black;
+	font-size: 2em;
+	margin: .2em .2em 0 0;
+    cursor: pointer;
+}
+#lblEmpresa,
+#lblUsuario,
+#lblPassword {
+	color: white;
+}
+
+@media screen and ( max-width: 1280px ){
+	label {
+		font-size: 1.5em;
+	}
+	legend {
+		display: none;
+	}
+	.sesion label{
+		font-size: 1em;
+	}
+	.login-screen {
+		top: 0;
+		width: 100%;
+		height: 100vh;
+		border-radius: 0;
+		padding: .5em;
+	}
+	.login-logo {
+		width: 50%;
+		align-self: center;
+        margin-bottom: 3em;
+	}
+	.login-group {
+		width: 100%;
+		align-items: flex-start;	
+		padding: 1.5em;
+		border: 0;
+	}
+    .login-field {
+        display: block !important;
+        width: 70% !important;
+        margin: auto;
+        font-size: 1.5em;
+    }
+	.login-field.select {
+		height: 2.4em;
+	}
+	.login-field.select select {
+		height: 2.2em;
+	}
+	.login-button {
+        height: 2em !important;
+        font-size: 2.4em !important;
+	}
+	.login-error {
+		font-size: 1.5em;
+	}
+	.close-sesion {
+        margin: .4em 1em;
+		font-size: 3em;
+	}
+}
+@media screen and ( max-width: 1280px ) and ( orientation: portrait ) {
+    .login-logo {
+		width: 80%;
+	} 
+    .login-field {
+        width: 100% !important;
+    }
+}

@@ -1,0 +1,123 @@
+.div-search-dialog-background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,.7);
+
+}
+.div-search-dialog {
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 55%;
+    height: 60vh;
+    background-image: linear-gradient(white 18%, #142238 18%);
+    border-radius: 3px;
+    box-shadow: 5px 5px 15px #000000;
+
+}
+.div-search-dialog__close {
+    align-self: flex-end;
+    margin: 0 1em;
+    font-family: Verdana, Times, serif;
+    font-weight: bold;
+	cursor: pointer;
+}
+.div-search-dialog__combo-container {
+    width: 50% !important;
+}
+.div-search-dialog__combo {
+    margin-bottom: 0;
+
+}
+.div-search-dialog__table {
+    width:90%;
+    height:40vh;
+    background:#ffffff;
+    overflow:auto; 
+    margin-bottom: 0;
+
+}
+.div-search-dialog__table__column-1,
+.div-search-dialog__table__column-2,
+.div-search-dialog__table__column-3 {
+    text-align: left;
+    color:#000000;
+}
+.div-search-dialog__table__column-1 {
+    width:20%;
+}
+.div-search-dialog__table__column-2 {
+    width:70%;
+}
+.div-search-dialog__table__column-3 {
+    width:10%;
+}
+.div-search-dialog__button-container {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1em;
+}
+.div-search-dialog__button {
+    margin-left: 1em;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+@media screen and ( max-width: 1280px ) {
+    .div-search-dialog {
+        width: 100%;
+        height: 100vh;
+    }
+    .div-search-dialog__combo-container {
+        width: 80% !important;
+    }
+    .div-search-dialog__combo {
+        font-size: 1.5em !important;
+        line-height: 2.5em !important;
+    }
+    .div-search-dialog__table {
+        height: 60vh;
+        font-size: 1.5em !important;
+        line-height: 2.5em !important;
+    }
+    .div-search-dialog__button {
+        width: 20% !important;
+        height: 2.8em !important;
+        margin-left: .5em;
+        font-size: 1.2em !important;
+        border-radius: 1.5em;
+    }
+    .div-search-dialog__close {
+        visibility: hidden;
+    }
+}
+
+@media screen and ( max-width: 1280px ) and ( orientation: portrait ) {
+    .div-search-dialog {
+        background-image: linear-gradient(white 12%, #142238 12%);
+    }
+    .div-search-dialog__combo-container {
+        width: 70% !important;
+    }
+    .div-search-dialog__table {
+        height: 70vh;
+    }
+    .div-search-dialog__button-container {
+        justify-content: center;
+        margin-bottom: 2em;
+    }
+    .div-search-dialog__button {
+        width: 30% !important;
+    }
+}

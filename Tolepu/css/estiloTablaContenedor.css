@@ -1,0 +1,44 @@
+.tableContenedor{
+	table-layout:fixed;
+	width:100%;
+}
+.tableContenedor #tblContenedor-thead{
+	background-color:#001F3F;
+	border:1px solid #001F3F;
+	color:white;
+	font-weight:bold;
+	text-align:center;
+}
+.tableContenedor .col-tblContenedor-1{
+	width:20%;	
+}
+.tableContenedor .col-tblContenedor-2{
+	width:65%;	
+}
+.tableContenedor .col-tblContenedor-3{
+	width:15%;	
+}
+.tableContenedor tbody tr{
+	border:1px solid #C5CDDF;
+}
+.tableContenedor .button-add,
+.tableContenedor .button-remove{
+	border-radius:50%;	
+	background-color:#CCC;
+	margin-left:0.5em;
+	width:1.5em;
+	height:auto;
+	display:inline-block;
+	text-align:center;
+	font-weight:bold;
+	color:white;
+	cursor:pointer;
+}
+
+.tableContenedor input{
+	width:100%;	
+}
+.tableContenedor select{
+	width:100%;	
+}
+

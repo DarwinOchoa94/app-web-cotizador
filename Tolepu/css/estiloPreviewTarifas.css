@@ -1,0 +1,388 @@
+.container-preview-tarifas-background,
+.container-edit-tarifas-background {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100vh;
+	background-color: rgba(0,0,0, .6);
+	z-index: 200;
+	display: none;
+}
+.container-preview-tarifas-background-show,
+.container-edit-tarifas-background-show {
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+.container-preview-tarifas,
+.container-edit-tarifas {
+	box-shadow:5px 15px 15px #000000;
+	box-sizing:border-box;
+	width:98vw;
+	height:98vh;
+	margin-top: 1em;
+	display:flex;
+	flex-direction:column;
+	justify-content:flex-start;
+	align-items:space-around;
+	z-index:210;
+}
+.container-edit-tarifas {
+	width:50vw;
+	height:60vh;
+}
+.header-preview-tarifas,
+.header-edit-tarifas {
+	width:100%;
+	background-color:white;
+	border-left: 3px solid #D7EBF8;
+	border-right: 3px solid #D7EBF8;
+	border-top: 3px solid #D7EBF8;
+	border-radius: .5em .5em 0 0;
+}
+.header-preview-tarifas__title,
+.header-edit-tarifas__title {
+	text-align:center;	
+	/*font-size: 1.2em;*/
+	color:#043B59;
+	margin: 1rem;
+	font-weight: bold;
+}
+.visor-tarifas,
+.edit-tarifas-detail {
+	width:100%;
+	height:100%;
+	overflow:auto;
+	background-color:#F4F6FB;
+	border-left: 3px solid #D7EBF8;
+	border-right: 3px solid #D7EBF8;
+}
+.button-group-tarifas {
+	background-color: #142238;	
+	width:100%;
+	height: 10vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	border-left: 3px solid #172D4B;
+	border-right: 3px solid #001620;
+	border-bottom: 3px solid #001620;
+	border-radius: 0 0 .5em .5em;
+}
+.button-group-tarifas .button-tarifas {
+	margin-right: 1.5em;
+}
+.div-table-tarifas-head {
+	color:#001F3F;
+	width:98%;
+	height:35px;
+	margin:auto;
+	margin-top:0.5em;
+	background-color:#D7EBF8;
+}
+.div-table-tarifas-body-agentes {
+	height:30vh;
+	overflow:auto;
+	border:solid 2px #D7EBF8;
+	box-sizing:border-box;
+}
+.div-table-tarifas-body-agentes .table-head {
+	background-color:#D7EBF8;
+	font-weight: bold;
+	height: 3em;
+	/*position: fixed;*/
+	/*width: 94.3%;	*/
+	/*display: inline-table;*/
+	/*z-index: 100;*/
+}
+.col-numero,
+.col-nombre,
+.col-ciudad,
+.col-comparar,
+.col-email,
+.col-generar {
+	text-align: center;
+	padding: 0;
+}
+.col-numero {
+	width: 10%;
+}
+.col-nombre {
+	width: 45%;
+}
+.col-ciudad {
+	width: 25%;
+}
+.col-comparar {
+	width: 10%;
+}
+.col-email {
+	width: 5%;
+}
+.col-generar {
+	width: 5%;
+}
+
+.div-table-tarifas-body-agentes span {
+	/*margin-top:0.4em;*/
+}
+.div-table-tarifas-body-agentes .table-body {
+	cursor:default;
+	/*position: relative;*/
+	/*top: 3em;*/
+}
+.div-table-tarifas-body-agentes span label {
+	cursor:pointer;
+}
+.div-table-tarifas-container {
+	overflow:auto;
+	width: 95%;
+	margin: auto;	
+	/*position: relative;*/
+}
+.div-table-tarifas-body {
+	min-width:1250px;
+	height: 50vh;
+	margin: 1em auto 0;
+	border:solid 2px #D7EBF8;
+	box-sizing:border-box;
+	overflow: auto;
+	background-color: #001F3F;
+}
+.div-table-tarifas-body .table {
+	min-width: 1250px;
+}
+.div-table-tarifas-body .table-head th {
+	height: 2em;	
+	width:120px;
+	vertical-align: middle;
+}
+.div-table-tarifas-body .table-head th:first-child {
+	/*width:30%;*/
+	width: 450px;
+}
+
+.div-table-tarifas-head .table,
+.div-table-tarifas-body-agentes .table,
+.div-table-tarifas-body .table {
+	border:none;
+	table-layout:fixed;
+	min-width: 1250px;	
+	width:100%;	
+}
+
+.div-table-tarifas-body .table th:first-child {
+	/*top: 2em;
+	position: absolute;*/
+	width: 450px;
+}
+.div-table-tarifas-body .table-body td:first-child {
+	/*position: absolute;*/
+	width: 450px;
+	/*background-color: #D7EBF8;*/
+}
+.col-tarifas {
+	/*width:30%;*/
+	width: 450px;
+}
+.col-valores {
+	/*width:10%;*/
+	width:120px;
+}
+.col-tarifas-edit{
+	width: 80%
+}
+.col-valores-edit {
+	width: 10%;
+	text-align: right;
+	padding-right: 1em; 
+}
+.th-agente {
+	color:#001F3F;
+	font-size:0.9em;
+	/*text-align:center;*/
+	padding-right:3em;
+}
+.th-rubro {
+	color:#001F3F;
+	font-size:0.9em;
+	text-align: center;
+}
+.td-valor {
+	width: 45%;
+	text-align: right;
+	padding-right: 3em;
+}
+.table-body tr:hover {
+	background: #D0E6F1;
+}
+.table-footer {
+	color:white;
+	background-color:#001F3F;
+	font-size:0.9em;
+	font-family:Verdana, Geneva, sans-serif;
+	padding-top:2em;	
+	padding-bottom:2em;
+}
+.table-footer tr:hover {
+	background-color: #003366;
+}
+.tf-rubro {
+	line-height:1.5em;
+	padding-left:3em;
+	color:yellow;
+}
+.tf-rubro-totales,
+.tf-rubro-totales--dialog {
+	line-height:1.9em;
+	padding-left:1em;
+	font-weight:bold;
+	color:#27E9F7;
+}
+.tf-rubro-totales--dialog {
+	line-height:2.5em;
+}
+.tf-valor {
+	line-height: 1.5em;
+	text-align: right;
+	padding-right: 1em;
+	font-size: 0.9em;
+	color:yellow;
+}
+.tf-valor-totales,
+.tf-valor-totales--dialog {
+	line-height: 1.9em;
+	text-align: right;
+	padding-right: 1em;
+	font-weight: bold;
+	color:#27E9F7;
+}
+.tf-valor-totales--dialog {
+	line-height: 2.5em;
+	padding-right: 2em;
+}
+.opcionAgente {
+	border-radius:50%;
+	text-align:center;
+	text-transform:uppercase;
+	margin:0.5em auto 0.5em auto;
+	display: inline-block;
+	width:30px;
+	height:30px;
+	line-height: 30px;
+	color:white;
+	font-weight:bold;
+}
+.table-body .input-email-cliente {
+	position: absolute;
+	left: 0;
+	width: 0;
+	padding: 0;
+	border: 0;
+	transition: all .3s linear;
+}
+.table-body .input-email-cliente-active {
+	left: -300px;
+	width: 300px;
+	padding: 0 8px;
+	border: 2px solid #d9d9d9;
+}
+.edit-tarifa-color-font {
+    color: #00FF00;
+}
+/**
+* ICON FONTS
+*/
+.im-envelope2 {
+	font-size: .4em;
+	color: #0478B5;
+	position: relative;
+	top: 1.1em;
+	cursor: pointer;
+}
+.edit-tarifa {
+	margin-left: .5em;
+	color: #0478B5;
+	font-size: 1.5em;
+	cursor: pointer;
+}
+
+
+/*.seleccionar-agente:active{
+	background-color:#C0E7F9 !important;
+	color:white !important;
+}*/
+
+
+@media screen and ( max-width: 1280px ) {
+	.header-preview-tarifas .titulo-preview-tarifas {
+		font-size: 1.3em;
+	}
+	.container-preview-tarifas {
+		width: 100%;
+		height: 100vh;
+	}
+	.div-table-tarifas-body {
+		min-width: 600px;
+		height: 44vh;
+	}
+	.div-table-tarifas-head .table,
+	.div-table-tarifas-body-agentes .table,
+	.div-table-tarifas-body .table {
+		min-width: 600px;
+		font-size: 1.3em;
+	}
+	.div-table-tarifas-body-agentes .table {
+		font-size: 1.1em;
+	}
+	.col-numero {
+		width: 5%;
+	}
+	.col-nombre {
+		width: 30%;
+	}
+	.col-ciudad {
+		display: none;
+	}
+	.button-group-tarifas {
+		height: 15vh;
+	}
+	.button-group-tarifas .button-tarifas {
+		width: 20%;
+        height: 2.8em;
+        font-size: 1.2em;
+		text-transform: uppercase;
+        border-radius: 1.5em;
+	}
+}
+
+@media screen and ( max-width: 1280px ) and ( orientation: portrait ) {
+	.header-preview-tarifas .titulo-preview-tarifas {
+		font-size: .9em;
+	}
+	.div-table-tarifas-head .table,
+	.div-table-tarifas-body-agentes .table,
+	.div-table-tarifas-body .table {
+		font-size: 1em;
+	}
+	.div-table-tarifas-body {
+		height: 49vh;
+	}
+	.button-group-tarifas {
+		justify-content: center;
+	}
+	.button-group-tarifas .button-tarifas {
+		width: 30%;
+        height: 2.8em;
+        font-size: 1.2em;
+		text-transform: uppercase;
+        border-radius: 1.5em;
+	}
+
+}
+
+
+
+
