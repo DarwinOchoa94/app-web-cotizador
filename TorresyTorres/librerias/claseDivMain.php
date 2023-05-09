@@ -7,7 +7,8 @@
 		 	$divBody	 = claseDivBody::show("main-body__container demo"); // show(" demo");
 		    //$divBodyIntegral = claseDivBodyImport::show();
 			$divFooter	 = claseDivFooter::show();
-			$userLogin 	 = claseUsuario::show("demo");	
+			$userLogin 	 = claseUsuario::show("demo");
+			$divLogo	 = null;
 
 			$mostrar = "
 				<div id='divMain'>

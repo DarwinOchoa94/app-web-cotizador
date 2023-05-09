@@ -482,6 +482,7 @@ function validarSearchBox(searchId) {
 }
 
 function validarComboBox(comboId) {
+	console.log(document.getElementById(comboId).value);
 	var optValue      = document.getElementById(comboId).value;
 	var arrayControl  = {};
 	var stringJson    = "";

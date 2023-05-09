@@ -64,7 +64,14 @@
 			
 			$iconImport                  = claseImage::show("../../Framework/images/iconMenuImportacion.png", "Background Body", "main-body__background");
 
-			$lblTipoServicio        = claseLabel::show("lblTipoServicio", "", "labelFormulario", "<font style=color:red;>* </font>Tipo de servicio:");	
+			$lblTipoServicio        	= claseLabel::show("lblTipoServicio", "", "labelFormulario", "<font style=color:red;>* </font>Tipo de servicio:");	
+
+			$captionFechaDispCarga		= "Fecha de disponibilidad de la carga:";
+			$captionFechaMaxCotiz		= "Fecha máxima para cierre de cotización:";
+			$lblFechaDispCarga			= claseLabel::show("lblFechaDispCarga", "", "labelFormulario date", $captionFechaDispCarga);
+			$lblFechaMaxCotiz			= claseLabel::show("lblFechaMaxCotiz", "", "labelFormulario date", $captionFechaMaxCotiz);
+			$dateFechaDispCarga			= claseDatePicker::show("dateFechaDispCarga", "'select select-custom'", "", "", "2000-01-01", "2099-12-31");
+			$dateFechaMaxCotiz			= claseDatePicker::show("dateFechaMaxCotiz", "'select select-custom'", "", "", "2000-01-01", "2099-12-31");
 
 			$mostrar="
 				<div id='divBody' class='$class'>
@@ -107,7 +114,10 @@
 																</li>
 																<li class='item-servicio' data-servicio='cia4pl'>
 																<input type='checkbox' name='tiposerv' value='REQ-4PL'> 4PL
-																</li>		
+																</li>
+																<li class='item-servicio' data-servicio='tolepu'>
+																<input type='checkbox' name='tiposerv' value='REQ-TOLEPU'> TOLEPU
+																</li>
 															</ul>
 													</td>
 												</tr>
@@ -150,6 +160,17 @@
 														<td width='50%'>
 															<p>&nbsp;</p>
 															".$cmbCliente."
+															<p>&nbsp;</p>
+														</td>
+													</tr>
+														<td width='50%'>
+															".$lblFechaDispCarga."
+															".$dateFechaDispCarga."
+															<p>&nbsp;</p>
+														</td>
+														<td width='50%'>
+															".$lblFechaMaxCotiz."
+															".$dateFechaMaxCotiz."
 															<p>&nbsp;</p>
 														</td>
 													</tr>

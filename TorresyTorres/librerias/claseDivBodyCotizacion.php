@@ -21,6 +21,13 @@
 			$txtEmail                    = claseTextBoxEmail::show("txtEmail", "email", claseTextBoxEmail::$string, 100, "", "");
 			$txtTelefono                 = claseTextBox::show("txtTelefono", "text", "select", claseTextBox::$string, 20, "", "");
 			$edtDetalleRequerimiento     = claseTextArea::show("edtDetalleRequerimiento", "select main_body__text-area", claseTextArea::$string, 800, "");
+
+			$captionFechaDispCarga		= "Fecha de disponibilidad de la carga:";
+			$captionFechaMaxCotiz		= "Fecha máxima para cierre de cotización:";
+			$lblFechaDispCarga			= claseLabel::show("lblFechaDispCarga", "", "labelFormulario date", $captionFechaDispCarga);
+			$lblFechaMaxCotiz			= claseLabel::show("lblFechaMaxCotiz", "", "labelFormulario date", $captionFechaMaxCotiz);
+			$dateFechaDispCarga			= claseDatePicker::show("dateFechaDispCarga", "'select select-custom'", "", "", "2000-01-01", "2099-12-31");
+			$dateFechaMaxCotiz			= claseDatePicker::show("dateFechaMaxCotiz", "'select select-custom'", "", "", "2000-01-01", "2099-12-31");
 						
 			$mostrar="
 				<table width='100%' height='100%'>
@@ -83,6 +90,20 @@
 									<p>&nbsp;</p>
 								</td>
 							</tr>
+							<table width='100%' height='100%'>
+								</tr>
+									<td width='50%'>
+										".$lblFechaDispCarga."
+										".$dateFechaDispCarga."
+										<p>&nbsp;</p>
+									</td>
+									<td width='50%'>
+										".$lblFechaMaxCotiz."
+										".$dateFechaMaxCotiz."
+										<p>&nbsp;</p>
+									</td>
+								</tr>
+							</table>
 						</table>													
 					</td>
 				</tr>

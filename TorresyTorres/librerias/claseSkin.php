@@ -61,6 +61,15 @@
 					font-family:Verdana, Geneva, sans-serif;
 					font-size:12px;
 					color: #00365A;
+
+					&.date {
+						vertical-align: sub;
+						margin-right: 8px;
+					}
+				}
+				.select-custom
+				{
+					width: 150px;
 				}
 				.banner
 				{
