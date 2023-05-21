@@ -10,6 +10,8 @@ function getDataObjectInicio() {
 	var	txtContacto 	= document.getElementById("txtContacto");
 	var	txtEmail 		= document.getElementById("txtEmail");
 	var	txtTelefono 	= document.getElementById("txtTelefono");
+	var dateFechaDispCarga	= document.getElementById('dateFechaMaxCotiz');
+	var dateFechaMaxCotiz	= document.getElementById('dateFechaMaxCotiz');
 	///let chkTiposervicio = document.querySelectorAll(".item-servicio");
 
 	var lbTarifa 		= optTarifa.checked;
@@ -48,16 +50,18 @@ function getDataObjectInicio() {
 	
 	var arrayDataObject=
 	{
-		"TipoRequerimiento":( (lbCotizacion==true) || (lbCotizacion=="on" ) )?"1":"2",
-		"ClienteId":lcClienteId,
-		"DetalleRequerimiento":lcDetalleRequerimiento,
-		"RazonSocial":lcRazonSocial,
-		"Ruc":lcRuc,
-		"Contacto":lcContacto,
-		"Email":lcEmail,
-		"Telefono":lcTelefono,
-		"TipoSolicitud":lcTipoSolicitud,
-		"TipoServicio":tiposServicios
+		"TipoRequerimiento"		: ((lbCotizacion==true) || (lbCotizacion=="on" ))? "1" : "2",
+		"ClienteId"		 		: lcClienteId,
+		"DetalleRequerimiento"	: lcDetalleRequerimiento,
+		"RazonSocial"			: lcRazonSocial,
+		"Ruc"					: lcRuc,
+		"Contacto"				: lcContacto,
+		"Email"					: lcEmail,
+		"Telefono"				: lcTelefono,
+		"TipoSolicitud"			: lcTipoSolicitud,
+		"fechaDispCarga"		: dateFechaDispCarga.value,
+		"fechaMaxCotizacion"	: dateFechaMaxCotiz.value,
+		"TipoServicio"			: tiposServicios
 	};
 	var stringJson = JSON.stringify(arrayDataObject);
 	return stringJson;

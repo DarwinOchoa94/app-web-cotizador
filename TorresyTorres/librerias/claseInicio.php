@@ -124,7 +124,7 @@
 		}
 		
 		public static function saveRecord() {
-
+			// var_dump($_SESSION);
 			//Obtener Variables
 			$mostrar			  = "Ocurrió un error al tratar de enviar la Solicitud.";
 			$dataObjectInicio 	  = $_GET["dataObjectInicio"];
@@ -250,20 +250,21 @@
 			
 			$baseDatos=new claseDataBase();
 			$baseDatos->conectarDB();
+			// $spName = $tipoSolicitud == 'REQ-TOLEPU' ? 'Tolepu..web_cotizador_tolepu_save' : 'TYT..WEB_COTIZADOR_TYT_SaveRecord';
 			$strSQL="
-				EXEC TYT..WEB_COTIZADOR_TYT_SaveRecord 
-				'$clienteId', 
-				'$detalleRequerimiento', 
-				'$razonSocial', 
-				'$ruc', 
-				'$contacto', 
-				'$email',  
-				'$telefono', 
+				EXEC TYT..WEB_COTIZADOR_TYT_SaveRecord
+				'$clienteId',
+				'$detalleRequerimiento',
+				'$razonSocial',
+				'$ruc',
+				'$contacto',
+				'$email',
+				'$telefono',
 				'$tipoSolicitud',
-				'$userCode', 
+				'$userCode',
 				'$userCompany'
 			";
-
+			// var_dump($strSQL);
 			$rs =  $baseDatos->db_query( $strSQL  ) or die (json_encode($arrayMail)); 
 		
 			while ($row  =  $baseDatos->db_fetch_array( $rs )) {
