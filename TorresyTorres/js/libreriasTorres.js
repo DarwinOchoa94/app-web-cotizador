@@ -10,12 +10,24 @@ function getDataObjectInicio() {
 	var	txtContacto 	= document.getElementById("txtContacto");
 	var	txtEmail 		= document.getElementById("txtEmail");
 	var	txtTelefono 	= document.getElementById("txtTelefono");
+	var dateFechaAsignacion	= document.getElementById('dateFechaAsignacion');
+	var dateFechaExpiracion	= document.getElementById('dateFechaExpiracion');
+	var cmbIncoterms		= document.getElementById('cmbIncoterms');
+	var cmbModoTrasportacion	= document.getElementById('cmbModoTrasportacion');
+	var cmbMetodo		= document.getElementById('cmbMetodo');
+	var cmbZonaHoraria	= document.getElementById('cmbZonaHoraria');
+	var cmbTipoCotizacion	= document.getElementById('cmbTipoCotizacion');
 	///let chkTiposervicio = document.querySelectorAll(".item-servicio");
 
 	var lbTarifa 		= optTarifa.checked;
 	var lbCotizacion	= optCotizacion.checked;
 	var lcClienteId 	= ((cmbCliente != null)?cmbCliente.value:"");
-	var lcDetalleRequerimiento = limpiarCadena(edtDetalleRequerimiento.value);
+	var incoterms				= cmbIncoterms != null ? cmbCliente.value : '';
+	var modoTrasportacion		= cmbModoTrasportacion != null ? cmbModoTrasportacion.value : '';
+	var metodo					= cmbMetodo != null ? cmbMetodo.value : '';
+	var zonaHoraria				= cmbZonaHoraria != null ? cmbZonaHoraria.value : '';
+	var tipoCotizacion			= cmbTipoCotizacion != null ? cmbTipoCotizacion.value : '';
+	var lcDetalleRequerimiento	= limpiarCadena(edtDetalleRequerimiento.value);
 	//var lctDetalleRequerimiento = edtDetalleRequerimiento.value;
 	//var lcRazonSocial 	= ((txtRazonSocial != null)?limpiarCadena(txtRazonSocial.value):((cmbCliente != null)?limpiarCadena(cmbCliente.firstChild.textContent):""));
 	if ( txtRazonSocial != null ){
@@ -48,16 +60,23 @@ function getDataObjectInicio() {
 	
 	var arrayDataObject=
 	{
-		"TipoRequerimiento":( (lbCotizacion==true) || (lbCotizacion=="on" ) )?"1":"2",
-		"ClienteId":lcClienteId,
-		"DetalleRequerimiento":lcDetalleRequerimiento,
-		"RazonSocial":lcRazonSocial,
-		"Ruc":lcRuc,
-		"Contacto":lcContacto,
-		"Email":lcEmail,
-		"Telefono":lcTelefono,
-		"TipoSolicitud":lcTipoSolicitud,
-		"TipoServicio":tiposServicios
+		"TipoRequerimiento"		: ((lbCotizacion==true) || (lbCotizacion=="on" ))? "1" : "2",
+		"ClienteId"		 		: lcClienteId,
+		"DetalleRequerimiento"	: lcDetalleRequerimiento,
+		"RazonSocial"			: lcRazonSocial,
+		"Ruc"					: lcRuc,
+		"Contacto"				: lcContacto,
+		"Email"					: lcEmail,
+		"Telefono"				: lcTelefono,
+		"TipoSolicitud"			: lcTipoSolicitud,
+		"fechaAsignacion"		: dateFechaAsignacion.value,
+		"fechaExpiracion"		: dateFechaExpiracion.value,
+		"incoterm"				: incoterms.value,
+		"modoTransportacion"	: modoTrasportacion.value,
+		"metodo"				: metodo.value,
+		"zonaHoraria"			: zonaHoraria.value,
+		"tipoCotizacion"		: tipoCotizacion.value,
+		"TipoServicio"			: tiposServicios
 	};
 	var stringJson = JSON.stringify(arrayDataObject);
 	return stringJson;

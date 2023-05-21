@@ -66,12 +66,32 @@
 
 			$lblTipoServicio        	= claseLabel::show("lblTipoServicio", "", "labelFormulario", "<font style=color:red;>* </font>Tipo de servicio:");	
 
-			$captionFechaDispCarga		= "Fecha de disponibilidad de la carga:";
-			$captionFechaMaxCotiz		= "Fecha máxima para cierre de cotización:";
-			$lblFechaDispCarga			= claseLabel::show("lblFechaDispCarga", "", "labelFormulario date", $captionFechaDispCarga);
-			$lblFechaMaxCotiz			= claseLabel::show("lblFechaMaxCotiz", "", "labelFormulario date", $captionFechaMaxCotiz);
-			$dateFechaDispCarga			= claseDatePicker::show("dateFechaDispCarga", "'select select-custom'", "", "", "2000-01-01", "2099-12-31");
-			$dateFechaMaxCotiz			= claseDatePicker::show("dateFechaMaxCotiz", "'select select-custom'", "", "", "2000-01-01", "2099-12-31");
+			$captionFechaAsignacion		= "Fecha de disponibilidad de la carga:";
+			$captionFechaExpiracion		= "Fecha máxima para cierre de cotización:";
+			$lblFechaAsignacion			= claseLabel::show("lblFechaDispCarga", "", "labelFormulario date", $captionFechaAsignacion);
+			$lblFechaExpiracion			= claseLabel::show("lblFechaMaxCotiz", "", "labelFormulario date", $captionFechaExpiracion);
+			$dateFechaAsignacion		= claseDatePicker::show("dateFechaAsignacion", "'select select-custom'", "", "", "2000-01-01", "2099-12-31");
+			$dateFechaExpiracion		= claseDatePicker::show("dateFechaExpiracion", "'select select-custom'", "", "", "2000-01-01", "2099-12-31");
+
+			$captionIncoterms			= "<font style=color:red;>* </font>Incoterms:";
+			$lblIncoterms				= claseLabel::show("lblCliente", "", "labelFormulario", $captionIncoterms);
+			$cmbIncoterms				= claseComboBox::show("cmbIncoterms", "select", "Seleccione...", $onfocusCmbCliente, $onchangeCmbCliente );
+
+			$captionIModoTrasportacion	= "<font style=color:red;>* </font>Modo de Trasportación:";
+			$lblModoTrasportacion		= claseLabel::show("lblCliente", "", "labelFormulario", $captionIModoTrasportacion);
+			$cmbModoTrasportacion		= claseComboBox::show("cmbModoTrasportacion", "select", "Seleccione...", $onfocusCmbCliente, $onchangeCmbCliente );
+
+			$captionMetodo				= "<font style=color:red;>* </font>Método:";
+			$lblMetodo					= claseLabel::show("lblCliente", "", "labelFormulario", $captionMetodo);
+			$cmbMetodo					= claseComboBox::show("cmbMetodo", "select", "Seleccione...", $onfocusCmbCliente, $onchangeCmbCliente );
+
+			$captionZonaHoraria			= "<font style=color:red;>* </font>Zona Horaria:";
+			$lblZonaHoraria				= claseLabel::show("lblCliente", "", "labelFormulario", $captionZonaHoraria);
+			$cmbZonaHoraria				= claseComboBox::show("cmbZonaHoraria", "select", "Seleccione...", $onfocusCmbCliente, $onchangeCmbCliente );
+
+			$captionTipoCotizacion		= "<font style=color:red;>* </font>Tipo de Cotización:";
+			$lblTipoCotizacion			= claseLabel::show("lblTipoCotizacion", "", "labelFormulario", $captionTipoCotizacion);
+			$cmbTipoCotizacion			= claseComboBox::show("cmbTipoCotizacion", "select", "Seleccione...", $onfocusCmbCliente, $onchangeCmbCliente );
 
 			$mostrar="
 				<div id='divBody' class='$class'>
@@ -164,14 +184,76 @@
 														</td>
 													</tr>
 														<td width='50%'>
-															".$lblFechaDispCarga."
-															".$dateFechaDispCarga."
+															".$lblFechaAsignacion."
+															".$dateFechaAsignacion."
 															<p>&nbsp;</p>
 														</td>
 														<td width='50%'>
-															".$lblFechaMaxCotiz."
-															".$dateFechaMaxCotiz."
+															".$lblFechaExpiracion."
+															".$dateFechaExpiracion."
 															<p>&nbsp;</p>
+														</td>
+													</tr>
+													</tr>
+														<td>
+															<table width='100%' height='100%'>
+																<tr>
+																	<td width='25%'>
+																		".$lblIncoterms."
+																	</td>
+																	<td width='25%'>
+																		".$lblModoTrasportacion."
+																	</td>
+																</tr>
+																<tr>
+																	<td width='25%'>
+																		".$cmbIncoterms."
+																		<p>&nbsp;</p>
+																	</td>
+																	<td width='25%'>
+																		".$cmbIncoterms."
+																		<p>&nbsp;</p>
+																	</td>
+																</tr>
+																<tr>
+																	<td width='25%'>
+																		<input type='checkbox' name='tiposerv' value='REQ-TYT-IM' style='position: relative; z-index: 1;'> Tipo de Cotización
+																		<p>&nbsp;</p>
+																	</td>
+																	<td width='25%'>
+																		<input type='checkbox' name='tiposerv' value='REQ-TYT-IM'> Urgente
+																		<p>&nbsp;</p>
+																	</td>
+																</tr>
+															</table>
+														</td>
+														<td>
+															<table width='100%' height='100%'>
+																<tr>
+																	<td width='25%'>
+																		".$lblMetodo."
+																	</td>
+																	<td width='25%'>
+																		".$lblZonaHoraria."
+																	</td>
+																</tr>
+																<tr>
+																	<td width='25%'>
+																		".$cmbIncoterms."
+																		<p>&nbsp;</p>
+																	</td>
+																	<td width='25%'>
+																		".$cmbIncoterms."
+																		<p>&nbsp;</p>
+																	</td>
+																</tr>
+																<tr>
+																	<td width='25%'>
+																		<input type='checkbox' name='tiposerv' value='REQ-TYT-IM'> Opción Multiple
+																		<p>&nbsp;</p>
+																	</td>
+																</tr>
+															</table>
 														</td>
 													</tr>
 													<tr>

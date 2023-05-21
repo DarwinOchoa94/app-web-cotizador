@@ -124,11 +124,11 @@
 		}
 		
 		public static function saveRecord() {
-
+			// var_dump($_SESSION);
 			//Obtener Variables
 			$mostrar			  = "Ocurrió un error al tratar de enviar la Solicitud.";
 			$dataObjectInicio 	  = $_GET["dataObjectInicio"];
-			$arrayInicio          = json_decode($dataObjectInicio,true);
+			$arrayInicio          = json_decode($dataObjectInicio, true);
 			$arrayMail			  = array(); 
 			$userCode			  = strtoupper($_SESSION["userCode"]);
 			$userCompany		  = strtolower($_SESSION["empresa"]);
@@ -144,6 +144,16 @@
 			$telefono			  =	$arrayInicio["Telefono"];
 			$tipoSolicitud  	  =	$arrayInicio["TipoSolicitud"];
 			$tipoServicio    	  =	$arrayInicio["TipoServicio"];
+
+			$incoterm			= $arrayInicio["incoterm"];
+			$metodo				= $arrayInicio["metodo"];
+			$modoTransportacion	= $arrayInicio["modoTransportacion"];
+			$numeroQt			= $arrayInicio["numeroQt"];
+			$asesor				= $arrayInicio["asesor"];
+			$soporteComercial	= $arrayInicio["soporteComercial"];
+			$zonaHoraria		= $arrayInicio["zonaHoraria"];
+			$fechaAsignacion	= $arrayInicio["fechaAsignacion"];
+			$fechaExpiracion	= $arrayInicio["fechaExpiracion"];
 			
 			$arrayMail[0]["error"]=-1;
 			$arrayMail[0]["message"]=$mostrar;
@@ -250,20 +260,45 @@
 			
 			$baseDatos=new claseDataBase();
 			$baseDatos->conectarDB();
-			$strSQL="
-				EXEC TYT..WEB_COTIZADOR_TYT_SaveRecord 
-				'$clienteId', 
-				'$detalleRequerimiento', 
-				'$razonSocial', 
-				'$ruc', 
-				'$contacto', 
-				'$email',  
-				'$telefono', 
+			$spName = $tipoSolicitud == 'REQ-TOLEPU' ? 'Tolepu..web_cotizador_tolepu_save' : 'TYT..WEB_COTIZADOR_TYT_SaveRecord';
+			$strSQLTorres="
+				EXEC TYT..WEB_COTIZADOR_TYT_SaveRecord
+				'$clienteId',
+				'$detalleRequerimiento',
+				'$razonSocial',
+				'$ruc',
+				'$contacto',
+				'$email',
+				'$telefono',
 				'$tipoSolicitud',
-				'$userCode', 
+				'$userCode',
 				'$userCompany'
 			";
 
+			$strSQLTolepu="
+				Tolepu.dbo.fdc_requerimientos_insert
+				'$clienteId',
+				'$detalleRequerimiento',
+				'$razonSocial',
+				'$ruc',
+				'$contacto',
+				'$email',
+				'$telefono',
+				'$tipoSolicitud',
+				'$userCode',
+				'$userCompany',
+				'$incoterm',
+				'$metodo',
+				'$modoTransportacion',
+				'$numeroQt',
+				'$asesor',
+				'$soporteComercial',
+				'$zonaHoraria',
+				'$fechaAsignacion',
+				'$fechaExpiracion'
+			";
+			$strSQL = $tipoSolicitud == 'REQ-TOLEPU' ? $strSQLTolepu : $strSQLTorres;
+			// var_dump($strSQL);
 			$rs =  $baseDatos->db_query( $strSQL  ) or die (json_encode($arrayMail)); 
 		
 			while ($row  =  $baseDatos->db_fetch_array( $rs )) {
