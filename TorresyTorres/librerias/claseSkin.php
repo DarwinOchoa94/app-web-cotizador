@@ -67,10 +67,6 @@
 						margin-right: 8px;
 					}
 				}
-				.select-custom
-				{
-					width: 150px;
-				}
 				.banner
 				{
 					background: rgb(169,3,41); /* Old browsers */

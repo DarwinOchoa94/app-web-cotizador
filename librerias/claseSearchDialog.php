@@ -84,6 +84,7 @@
 			$valor	 	  = $_GET["valor"];
 			$viaEmbarqueId= $_GET["viaEmbarqueId"];	
 			$empresa	  = $_GET["empresa"];
+			$empresa	  = 'Tolepu';
 			$parametro	  = "";
 			switch($comboBoxId)
 			{

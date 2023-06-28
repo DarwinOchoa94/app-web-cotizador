@@ -1,32 +1,49 @@
 var tipoSolicitud = "";
 
 function getDataObjectInicio() {
-	var optTarifa 		= document.getElementById("optTarifa");
-	var optCotizacion 	= document.getElementById("optCotizacion");
-	var cmbCliente		= document.getElementById("cmbCliente");
+	var optTarifa 				= document.getElementById("optTarifa");
+	var optCotizacion 			= document.getElementById("optCotizacion");
+	var cmbCliente				= document.getElementById("cmbCliente");
 	var edtDetalleRequerimiento	= document.getElementById("edtDetalleRequerimiento");
-	var txtRazonSocial	= document.getElementById("txtRazonSocial");
-	var	txtRuc 			= document.getElementById("txtRuc");
-	var	txtContacto 	= document.getElementById("txtContacto");
-	var	txtEmail 		= document.getElementById("txtEmail");
-	var	txtTelefono 	= document.getElementById("txtTelefono");
-	var dateFechaAsignacion	= document.getElementById('dateFechaAsignacion');
-	var dateFechaExpiracion	= document.getElementById('dateFechaExpiracion');
-	var cmbIncoterms		= document.getElementById('cmbIncoterms');
+	var txtRazonSocial			= document.getElementById("txtRazonSocial");
+	var	txtRuc 					= document.getElementById("txtRuc");
+	var	txtContacto 			= document.getElementById("txtContacto");
+	var	txtEmail 				= document.getElementById("txtEmail");
+	var	txtTelefono 			= document.getElementById("txtTelefono");
+	var	chkComparativa 			= document.getElementById("checkComparativas");
+	var	chkUrgente 				= document.getElementById("checkUrgente");
+	var	txtMotivoUrgente 		= document.getElementById("txtMotivoUrgente");
+	var	chkPeligrosa 			= document.getElementById("checkPeligrosa");
+	var dateFechaAsignacion		= document.getElementById('dateFechaAsignacion');
+	var dateFechaExpiracion		= document.getElementById('dateFechaExpiracion');
+	var cmbTipoCotizacion		= document.getElementById('cmbTipoCotizacion');
+	var cmbTipoTransporte		= document.getElementById('cmbTipoTransporte');
 	var cmbModoTrasportacion	= document.getElementById('cmbModoTrasportacion');
-	var cmbMetodo		= document.getElementById('cmbMetodo');
-	var cmbZonaHoraria	= document.getElementById('cmbZonaHoraria');
-	var cmbTipoCotizacion	= document.getElementById('cmbTipoCotizacion');
+	var cmbIncoterms			= document.getElementById('cmbIncoterms');
+	var cmbOrigen				= document.getElementById('cmbOrigen');
+	var cmbDestino				= document.getElementById('cmbDestino');
+	var cmbZonaHoraria			= document.getElementById('cmbZonaHoraria');
 	///let chkTiposervicio = document.querySelectorAll(".item-servicio");
 
-	var lbTarifa 		= optTarifa.checked;
-	var lbCotizacion	= optCotizacion.checked;
-	var lcClienteId 	= ((cmbCliente != null)?cmbCliente.value:"");
-	var incoterms				= cmbIncoterms != null ? cmbCliente.value : '';
-	var modoTrasportacion		= cmbModoTrasportacion != null ? cmbModoTrasportacion.value : '';
-	var metodo					= cmbMetodo != null ? cmbMetodo.value : '';
-	var zonaHoraria				= cmbZonaHoraria != null ? cmbZonaHoraria.value : '';
-	var tipoCotizacion			= cmbTipoCotizacion != null ? cmbTipoCotizacion.value : '';
+	var lbTarifa 				= optTarifa.checked;
+	var lbCotizacion			= optCotizacion.checked;
+	var lcClienteId 			= ((cmbCliente != null)? cmbCliente.value: "");
+
+	var comparativa				= chkComparativa.checked ? 1 : 0;
+	var urgente					= chkUrgente.checked ? 1 : 0;
+	var motivoUrgente			= txtMotivoUrgente != null ? txtMotivoUrgente.value : '';
+	var peligrosa				= chkPeligrosa.checked ? 1 : 0;
+	var fechaAsignacion			= dateFechaAsignacion != null ? dateFechaAsignacion.value : '';
+	var fechaExpiracion			= dateFechaExpiracion != null ? dateFechaExpiracion.value : '';
+	var tipoCotizacionId		= cmbTipoCotizacion	!= null ? cmbTipoCotizacion.value : '';
+	var tipoTransporteId		= cmbTipoTransporte != null ? cmbTipoTransporte.value : "";
+	var modoTrasportacionId		= cmbModoTrasportacion != null ? cmbModoTrasportacion.value : '';
+	var incotermId				= cmbIncoterms != null ? cmbIncoterms.value : '';
+	var origenId				= cmbOrigen != null ? cmbOrigen.value : '';
+	var destinoId				= cmbDestino != null ? cmbDestino.value : '';
+	var zonaHorariaId			= cmbZonaHoraria != null ? cmbZonaHoraria.value : '';
+	var comentario				= edtDetalleRequerimiento != null ? edtDetalleRequerimiento.value : '';
+
 	var lcDetalleRequerimiento	= limpiarCadena(edtDetalleRequerimiento.value);
 	//var lctDetalleRequerimiento = edtDetalleRequerimiento.value;
 	//var lcRazonSocial 	= ((txtRazonSocial != null)?limpiarCadena(txtRazonSocial.value):((cmbCliente != null)?limpiarCadena(cmbCliente.firstChild.textContent):""));
@@ -52,32 +69,40 @@ function getDataObjectInicio() {
   
     //console.log("Tipos de Servicios "+ tiposServicios);
 
-	var lcRuc 			= ((txtRuc != null)?txtRuc.value:"");
-	var lcContacto 		= ((txtContacto != null)?txtContacto.value:"");
-	var lcEmail 		= ((txtEmail != null)?txtEmail.value:"");
-	var lcTelefono 		= ((txtTelefono != null)?txtTelefono.value:"");
+	var lcRuc 			= ((txtRuc != null) ? txtRuc.value : "");
+	var lcContacto 		= ((txtContacto != null) ? txtContacto.value : "");
+	var lcEmail 		= ((txtEmail != null) ? txtEmail.value : "");
+	var lcTelefono		= ((txtTelefono != null) ? txtTelefono.value : "");
 	var lcTipoSolicitud = tipoSolicitud;
 	
 	var arrayDataObject=
 	{
-		"TipoRequerimiento"		: ((lbCotizacion==true) || (lbCotizacion=="on" ))? "1" : "2",
-		"ClienteId"		 		: lcClienteId,
-		"DetalleRequerimiento"	: lcDetalleRequerimiento,
-		"RazonSocial"			: lcRazonSocial,
-		"Ruc"					: lcRuc,
-		"Contacto"				: lcContacto,
-		"Email"					: lcEmail,
-		"Telefono"				: lcTelefono,
-		"TipoSolicitud"			: lcTipoSolicitud,
-		"fechaAsignacion"		: dateFechaAsignacion.value,
-		"fechaExpiracion"		: dateFechaExpiracion.value,
-		"incoterm"				: incoterms.value,
-		"modoTransportacion"	: modoTrasportacion.value,
-		"metodo"				: metodo.value,
-		"zonaHoraria"			: zonaHoraria.value,
-		"tipoCotizacion"		: tipoCotizacion.value,
-		"TipoServicio"			: tiposServicios
+		"tipoRequerimiento"		: ((lbCotizacion==true) || (lbCotizacion=="on" ))? "1" : "2",
+		"clienteId"		 		: lcClienteId,
+		"detalleRequerimiento"	: lcDetalleRequerimiento,
+		"razonSocial"			: lcRazonSocial,
+		"ruc"					: lcRuc,
+		"contacto"				: lcContacto,
+		"email"					: lcEmail,
+		"telefono"				: lcTelefono,
+		"urgente"				: urgente,
+		"motivoUrgente"			: motivoUrgente,
+		"cotizacion_comparativa": comparativa,
+		"peligrosa"				: peligrosa,
+		"tipoSolicitud"			: lcTipoSolicitud,
+		"fechaAsignacion"		: fechaAsignacion,
+		"fechaExpiracion"		: fechaExpiracion,
+		"tipoCotizacionId"		: tipoCotizacionId,
+		"tipoTransporteId"		: tipoTransporteId,
+		"modoTransportacionId"	: modoTrasportacionId,
+		"incotermId"			: incotermId,
+		"origenId"				: origenId,
+		"destinoId"				: destinoId,
+		"zonaHorariaId"			: zonaHorariaId,
+		"comentario"			: comentario,
+		"tipoServicio"			: tiposServicios
 	};
+	console.log(arrayDataObject);
 	var stringJson = JSON.stringify(arrayDataObject);
 	return stringJson;
 }

@@ -2,7 +2,7 @@
 	class claseDataBase {
 		//private $servidor = "192.168.0.177\SQLDEV";
 		//private $servidor = "192.168.0.6";
-		private $servidor = "192.168.0.15";
+		private $servidor = "192.168.0.7";
 		private $usuario  = "sa";
 		private $password = "24t0RreS41";
 		private $base     = "tyt";
@@ -17,7 +17,7 @@
 			$usuario  = $this->usuario;
 			$password = $this->password;
 			$base     = $this->base;
-			
+
         	$this->link = mssql_connect($servidor,$usuario,$password);
         	mssql_select_db($base,$this->link) or die ("Error de Conexion");
 			return "Conectado";

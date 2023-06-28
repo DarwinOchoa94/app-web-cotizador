@@ -3,33 +3,33 @@
 		public static function show() {
 			if ( isset($_GET["action"]) ) {
 				$mostrar = "";
-				
+
 				if ($_GET["action"]=="ejecutarAjax") {
 					$mostrar = claseInicio::ejecutarAjax();
 					return $mostrar;
 				}
-				
+
 				if ($_GET["action"]=="abrirFrm") {
 					$mostrar = claseInicio::abrirFrm();
 					return $mostrar;
 				}
-				
+
 				if ($_GET["action"]=="loadComboBox") {
 					$mostrar = claseComboBox::loadComboBox();
 					return $mostrar;
 				}
-				
+
 				if ($_GET["action"]=="cargarGridSearchDialog") {
 					$mostrar = claseSearchDialog::cargarGridSearchDialog();
 					return $mostrar;
 				}
-				
+
 				if ($_GET["action"]=="logout") {
 					$mostrar = claseUsuario::logoutUsuario();
 					return $mostrar;
 				}
 			}
-						
+
 			$divMain = claseDivMain::show();
 			$divBodyImport = claseDivBodyImport::show();
 			$mostrar="
@@ -55,7 +55,7 @@
 						empresa = 'tyt'
 					>
 						".$divMain."
-					
+
 						<script language='javaScript'>
 							var screenWidht  = screen.width;
 							var screenHeight = 1100;
@@ -68,7 +68,7 @@
 								enecenderLoadingScreen();
 								var error = 1;
 								var icon  = 1;
-								var funcion = '';	
+								var funcion = '';
 								var sJsonDataObjectInicio=getDataObjectInicio();
 								var isOK = validaciones();
 
@@ -87,35 +87,35 @@
 								}
 							}
 							function Integral() {
-							 
-								var divBody   = document.getElementById('divBody');  
+
+								var divBody   = document.getElementById('divBody');
 								tipoSolicitud = 'REQ-INTEG';
 								console.log(tipoSolicitud);
 								var purl = './index.php?action=ejecutarAjax&clase=claseDivBodyImport&metodo=show';
 								console.log(purl);
-								var content = ".$divBodyImport."; 
+								var content = ".$divBodyImport.";
 								document.body.setAttribute('empresa','tyt');
 								divBody.innerHTML=content;
 								interactiveMenu(tipoSolicitud);
 							}
 
 						</script>
-						
+
 						".claseSearchDialog::show(claseMessageBackGround::$backgroundWebCotizadorTyT)."
 						".claseMessageBox::load(claseMessageBackGround::$backgroundWebCotizadorTyT)."
 						".claseMessageBoxConfirm::load(claseMessageBackGround::$backgroundWebCotizadorTyT)."
 						".claseLoadingScreen::show()."
 						".claseToolTipText::show("#FCF0B0", "blue")."
 						<script type='text/javascript' src='../TorresyTorres/files/slider/engine1/jquery.js'></script>
-						<script type='text/javaScript' src='../js/librerias.js?v1.0.10'></script>						
+						<script type='text/javaScript' src='../js/librerias.js?v1.0.10'></script>
 						<script type='text/javaScript' src='../TorresyTorres/js/libreriasTorres.js?v1.0.10'></script>
-						<script type='text/javaScript' src='../js/login.js?v1.0.10'></script>						
+						<script type='text/javaScript' src='../js/login.js?v1.0.10'></script>
 					</body>
 				</html>
 			";
 			return $mostrar;
 		}
-		
+
 		private static function ejecutarAjax() {
 			$clase  = $_GET["clase"];
 			$metodo = $_GET["metodo"];
@@ -123,24 +123,24 @@
 			return $mostrar;
 
 		}
-		
+
 		private static function abrirFrm() {
-			$frm = $_GET["frm"];	
+			$frm = $_GET["frm"];
 			eval("\$mostrar = ".$frm."::show();");
 			return $mostrar;
 
 		}
-		
+
 		public static function saveRecord() {
 
 			//Obtener Variables
 			$mostrar			  = "Ocurrió un error al tratar de enviar la Solicitud.";
 			$dataObjectInicio 	  = $_GET["dataObjectInicio"];
 			$arrayInicio          = json_decode($dataObjectInicio,true);
-			$arrayMail			  = array(); 
+			$arrayMail			  = array();
 			$userCode			  = strtoupper($_SESSION["userCode"]);
 			$userCompany		  = strtolower($_SESSION["empresa"]);
-			
+
 			$tipoRequerimiento	  =	$arrayInicio["TipoRequerimiento"];
 			$clienteId			  =	$arrayInicio["ClienteId"];
 			//echo $clienteId;
@@ -152,15 +152,15 @@
 			$telefono			  =	$arrayInicio["Telefono"];
 			$tipoSolicitud  	  =	$arrayInicio["TipoSolicitud"];
 			$tipoServicio    	  =	$arrayInicio["TipoServicio"];
-			
+
 			$arrayMail[0]["error"]=-1;
 			$arrayMail[0]["message"]=$mostrar;
-			
+
 
 			//Validaciones
 			//Validacioón al menos debe seleccionar un tipo de servicio
-			echo $tipoSolicitud;			
-			$arr_lengthServicio = count($tipoServicio); 
+			echo $tipoSolicitud;
+			$arr_lengthServicio = count($tipoServicio);
 			if  ($arr_lengthServicio == 0 ) {
 				$mostrar="
 					Debe seleccionar un tipo de servicio.
@@ -225,7 +225,7 @@
 				}
 
 			}
-			
+
 			if ( strlen(ltrim(rtrim($detalleRequerimiento))) == 0  ) {
 				$mostrar="
 					No ha ingresado su requerimiento.
@@ -237,13 +237,13 @@
 
 			}
 
-			
 
-			//Verificamos si existe un solo tipo de servicio, se ingresa como tipo de solicitud 
+
+			//Verificamos si existe un solo tipo de servicio, se ingresa como tipo de solicitud
 
 
 			/*if ($tipoSolicitud == 'REQ-INTEG') {
-				$arr_lengthServicio = count($tipoServicio); 
+				$arr_lengthServicio = count($tipoServicio);
 				if  ($arr_lengthServicio == 0  || $arr_lengthServicio == 1 )  {
 					$mostrar="
 						Debe seleccionar al menos 2 Tipos  de Servicios.
@@ -257,44 +257,44 @@
 			//echo  $clienteId;
 			//echo $detalleRequerimiento;
 			//echo $tipoSolicitud;
-			
+
 			$baseDatos=new claseDataBase();
 			$baseDatos->conectarDB();
 			$strSQL="
-				EXEC TYT..WEB_COTIZADOR_TYT_SaveRecord 
-				'$clienteId', 
-				'$detalleRequerimiento', 
-				'$razonSocial', 
-				'$ruc', 
-				'$contacto', 
-				'$email',  
-				'$telefono', 
+				EXEC TYT..WEB_COTIZADOR_TYT_SaveRecord
+				'$clienteId',
+				'$detalleRequerimiento',
+				'$razonSocial',
+				'$ruc',
+				'$contacto',
+				'$email',
+				'$telefono',
 				'$tipoSolicitud',
-				'$userCode', 
+				'$userCode',
 				'$userCompany'
 			";
 
-			$rs =  $baseDatos->db_query( $strSQL  ) or die (json_encode($arrayMail)); 
-		
+			$rs =  $baseDatos->db_query( $strSQL  ) or die (json_encode($arrayMail));
+
 			while ($row  =  $baseDatos->db_fetch_array( $rs )) {
 				$error 	 	= $baseDatos->sysGetDataFieldSrv( $row[ 'NumError' ] );
 				$message 	= $baseDatos->sysGetDataFieldSrv( $row[ 'Mensaje' ] );
 				$RegistroID = $baseDatos->sysGetDataFieldSrv( $row[ 'RegistroID' ] );
 			}
-			
-			$arr_lengthServicio = count($tipoServicio); 
+
+			$arr_lengthServicio = count($tipoServicio);
 			if ( $error == 0 ) {
 				for($i=0; $i<$arr_lengthServicio; $i++)
 				{
 					$IdTipo = $tipoServicio[$i];
 					//echo "TipoServicio = ".$IdTipo;
 					$strSQL = "
-							EXEC TYT..WEB_COTIZADOR_TYT_SaveRecord_Servicio 
+							EXEC TYT..WEB_COTIZADOR_TYT_SaveRecord_Servicio
 						    '$RegistroID',
 						    '$IdTipo',
 						    '$userCode'";
 
-					$rs =  $baseDatos->db_query( $strSQL  ) or die (json_encode($arrayMail));	    
+					$rs =  $baseDatos->db_query( $strSQL  ) or die (json_encode($arrayMail));
 			    }
 			}
 			else {
@@ -303,12 +303,12 @@
 			 		$arrayMail[0]["message"]          = "Ocurrió un error al escoger tipo de servicio seleccionado";
 			 	}
 
-			
+
 			$baseDatos->desconectarDB();
 			$arrayMail[0]["error"]=$error;
 			$arrayMail[0]["message"]=$message;
-			$stringJson=json_encode($arrayMail);			
-			return $stringJson; 
+			$stringJson=json_encode($arrayMail);
+			return $stringJson;
 		}
 	}
 ?>
